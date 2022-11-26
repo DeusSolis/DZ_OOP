@@ -2,7 +2,7 @@
 
 class Product:
     def __init__(self, name_product: str, price: float):
-        self.name_product = name_product
+        self.name= name_product
         self.price = price
 
     def total_price(self, quantity):
