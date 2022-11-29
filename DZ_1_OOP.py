@@ -11,14 +11,16 @@ class Product:
 
 class ShoppingCart():
     def __init__(self):
-        self.products = {}
+        self.products = []
+        self.quantities = []
 
     def add_product(self, product: Product, quantity):
-        self.products.update({product: quantity})
+        self.products.append(product)
+        self.quantities.append(quantity)
 
     def total_price_cart(self):
         sum = 0
-        for (product, quantity) in self.products.items():
+        for (product, quantity) in zip(self.products, self.quantities):
             sum += product.total_price(quantity)
         return sum
 
