@@ -34,6 +34,9 @@ class ShoppingCart:
     def __str__(self):
         return f'{self.products} is {self.quantities}'
 
+    def __eq__(self, other):
+        return self.products == other.products and other.quantities == self.quantities
+
     def add_product(self, product: Product, quantity):
         if product not in self.products:
             self.quantities.append(quantity)
@@ -70,34 +73,9 @@ if __name__ == "__main__":
     cart_1 = ShoppingCart()
     cart_2 = ShoppingCart()
     cart_1.add_product(banana, 1)
-    cart_1.add_product(banana, 1)
-    cart_2.add_product(bread, 1)
+    cart_2.add_product(banana, 1)
+    # cart_2.add_product(bread, 1)
     cart_total = cart_1 + cart_2
     print(cart_total.total_price_cart())
-    # cart_1.add_product(banana, 1)
-    # print(cart_1.total_price_cart())
-    # cart_2.add_product(banana, 1)
-    #
-    # cart_4.add_product(Product('beer', 7), 3)
-    # cart_4.add_product(Product('banana', 4), 8)
-    # cart_4.add_product(Product('banana', 4), 8)
-    # print(cart_4.total_price_cart())
-    # print(banana.total_price(7))
-    # cart_4 = ShoppingCart()
-    # print(banana)
-    # print(cart_3.total_price_cart())
+    print(cart_1 == cart_2)
 
-    # print(cart_1 == cart_2)
-    # print(cart_1.total_price_cart())
-    # cart_2.add_product(meat, 7)
-    # cart_1.add_product(bread, 2)
-    # cart_1.add_product(beer, 10)
-    # print(cart_1.total_price_cart())
-    # print(cart_1.products)
-    #
-    # cart_3 = ShoppingCart()
-    # cart_3.add_product(banana, 1)
-    # cart_3.add_product(banana, 1)
-    # cart_3.add_product(banana, 1)
-    # cart_3.add_product(meat, 7)
-    # print(cart_2.total_price_cart())
